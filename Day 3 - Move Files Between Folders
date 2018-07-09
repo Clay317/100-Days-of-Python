@@ -1,0 +1,15 @@
+#The directory must be already created in the destination file.
+#You can rename the file with both os and shuntil.
+
+import os
+
+os.rename(r"C:\\Users\\Connor\\Documents\\Ball\\Bat.txt", "C:\\Users\\Connor\\Documents\\Theo\\Stick.txt")
+
+
+#Shuntil.move works like os.rename in most cases. 
+#It will delete the source file, if the files are on different discs. 
+#It works better than os.rename, if files are on different directories.  
+
+import shutil
+
+shutil.move("C:\\Users\\Connor\\Documents\\Theo\\Stick.txt", "C:\\Users\\Connor\\Documents\\Ball\\Bat.txt")
