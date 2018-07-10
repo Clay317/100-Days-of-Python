@@ -1,0 +1,6 @@
+import os
+
+os.getcwd()
+collection = "C:\\Users\\Connor\\Documents\\Ball\\"
+for i, filename in enumerate(os.listdir(collection)):
+    os.rename("C:\\Users\\Connor\\Documents\\Ball\\" + filename, "C:\\Users\\Connor\\Documents\\Ball\\" + str(i) + ".jpg")
