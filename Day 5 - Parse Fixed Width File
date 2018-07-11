@@ -1,0 +1,8 @@
+import pandas as pd
+ 
+path = ("C:\\Users\\Connor\\Documents\\Ball\\Newt.txt")
+
+col_specification = [(0, 5), (6, 10), (11, 20)]
+data = pd.read_fwf(path, colspecs=col_specification)
+
+print(data)
