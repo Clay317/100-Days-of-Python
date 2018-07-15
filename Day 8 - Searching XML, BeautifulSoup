@@ -1,0 +1,20 @@
+import requests
+from bs4 import BeautifulSoup
+
+first = requests.get('https://www.baseball-reference.com/leagues/MLB/2018.shtml')
+
+#200  indicates the pages downloaded correctly 
+first.status_code
+
+getcontent = bb.content
+
+soup = BeautifulSoup(getcontent, 'html.parser')
+
+#use CSS selectors to search for p inside div
+H = soup.select('div p')
+
+#search for class name within p tag
+P = soup.find_all('p', class_='listhead')
+
+print(H)
+print(P)
