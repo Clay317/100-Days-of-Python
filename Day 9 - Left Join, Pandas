@@ -1,0 +1,13 @@
+import pandas as pd
+
+coffee = pd.read_csv('C:\\Users\\Connor\\Documents\\Theo\\Coffee.csv')
+
+store = pd.read_csv('C:\\Users\\Connor\\Documents\\Theo\\Stores.csv')
+
+merge_left = pd.merge(left=coffee,right=store,how='outer',indicator=True,left_on=’type', right_on='type')
+ 
+filtered_left = merge_left[merge_left._merge == 'left_only']
+ 
+header = [‘Type’, ‘Location’, 'Hours']
+
+filtered_left.to_csv('C:\\Users\\Connor\\Documents\\Theo\\ToGo.csv', columns = header)
