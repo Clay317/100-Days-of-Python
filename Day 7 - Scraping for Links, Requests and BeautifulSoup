@@ -1,0 +1,10 @@
+import requests
+from bs4 import BeautifulSoup
+
+first = requests.get('https://www.baseball-reference.com/leagues/MLB/2018.shtml')
+getcontent = bb.content
+
+soup = BeautifulSoup(getcontent, 'html.parser')
+links = soup.find_all('a')
+
+print(links)
