@@ -2,4 +2,7 @@ import pandas as pd
 
 league = pd.read_html("https://www.baseball-reference.com/leagues/MLB/2018.shtml")
 
+#find the best young hitting team (slight overgeneralization, but still interesting)
+bestyoung = league.sort_values(by=['BatAge', 'BA'], ascending=False)
+
 print(league)
