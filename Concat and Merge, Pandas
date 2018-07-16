@@ -1,0 +1,13 @@
+import pandas
+
+class1 = pd.read_html(C:\\Users\\Connor\\Documents\\Ball\\class1.csv")
+
+class2 = pd.read_html(C:\\Users\\Connor\\Documents\\Ball\\class2.csv")
+
+frames = [class1, class2]
+
+#add keys to quickly extract sub dataframes
+result = pd.concat(frames, keys=['a','b'])
+result.loc['b']
+
+SQLresult = pd.merge(class1, class2, how='left', on=['subject', 'time'], indicator='indicator_column'))
