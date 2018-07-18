@@ -1,0 +1,9 @@
+import zipfile, os
+
+os.chdir('C:\\Users\\Connor\\Documents\\Ball')  
+
+ToUnzip = zipfile.ZipFile('NewFolder.zip')
+
+ToUnzip.extractall()
+
+ToUnzip.close()
