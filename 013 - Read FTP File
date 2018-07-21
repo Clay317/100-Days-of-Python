@@ -1,0 +1,17 @@
+from ftplib import FTP
+
+URL = "<ftp_server_url or IP>"
+username = '<username>'
+password = '<password>'
+
+ftp.retrlines('LIST') 
+
+filename = '<filename>'
+
+file = open(filename, 'wb')
+
+with FTP(URL, username, email) as ftp:
+    ftp.login(username, password)
+	ftp.retrbinary('RETR %s' % filename, file.write)
+
+file.close()
