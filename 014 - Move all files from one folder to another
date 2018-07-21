@@ -1,0 +1,10 @@
+import os
+import shutil
+
+fromdir = "C:\\Users\\Connor\\Documents\\Theo"
+todir = "C:\\Users\\Connor\\Documents\\Ball"
+
+files = os.listdir(fromdir)
+
+for i in files:
+    shutil.move(os.path.join(fromdir, i), todir)
