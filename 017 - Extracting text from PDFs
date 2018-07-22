@@ -1,0 +1,11 @@
+import PyPDF2
+
+PDFfile = open('C://Users//Connor//Desktop//bb15.pdf', 'rb')
+
+Reader = PyPDF2.PdfFileReader(PDFfile)
+
+Reader.numPages
+
+Pages = pdfReader.getPage(0)
+
+Pages.extractText()
