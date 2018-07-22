@@ -1,0 +1,6 @@
+import datetime
+import time
+
+RunThisDate = datetime.datetime(2018, 12, 31, 0, 0, 0)
+while datetime.datetime.now() < RunThisDate:
+    time.sleep(1)
