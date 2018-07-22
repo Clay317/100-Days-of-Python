@@ -1,6 +1,6 @@
 import os
 
-name = '.txt'
+name = '.csv'
 path = 'C:\\Users'
 
 for root, dirs, files in os.walk(path):
