@@ -1,0 +1,10 @@
+import subprocess
+
+#Launch program from script
+subprocess.Popen("C:\Windows\System32\calc.exe")
+
+#open program, and pass argument (opens notepad file hello.txt)
+subprocess.Popen(['C:\\Windows\\notepad.exe', 'C:\\hello.txt'])
+
+#Run from within python script
+subprocess.Popen(['C:\\python35\\python.exe', 'C:\\Users\\Connor\\Documents\\Ball\\hello.py'])
