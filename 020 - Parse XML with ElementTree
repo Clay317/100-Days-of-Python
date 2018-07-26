@@ -1,0 +1,17 @@
+import xml.etree.ElementTree as ET
+tree = ET.parse('C:\\Users\\Connor\\Documents\\Ball\\countries.xml')
+root = tree.getroot()
+
+#Get list of child tags
+for child in root:
+    print(child.tag, child.attrib)
+
+#Iterate over a subtree
+for neighbor in root.iter('neighbor'):
+    print(neighbor.attrib)
+    
+#findall() finds the all instances of a tag, find() finds the first instance of a tag
+for country in root.findall('country'):
+  rank = country.find('rank').text
+  name = country.get('name')
+  print(name, rank)
