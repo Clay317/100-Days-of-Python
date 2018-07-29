@@ -11,7 +11,7 @@ def load_dictionary():
 def check_word(dictionary, word):
     valid_words = []
     permutations = []
-    for i in range(0, len(word)):
+    for i in range(0, len(word) +1):
         perms = list(itertools.permutations(word, i))
         for x in perms:
             permutations.append(''.join(x))
