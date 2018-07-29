@@ -1,0 +1,33 @@
+#Creates lambda function echo_word takes 2 parameters: a string value and an integer value
+echo_word = (lambda word1, echo: word1 * echo)
+
+result = echo_word('hey', 5)
+
+print(result)
+
+#map() applies a function over an object, such as a list
+team = ['Connor', 'Alex', 'Roscoe']
+
+shout_team = map(lambda item: item + '!!!', team)
+
+shout_team_list = list(shout_team)
+
+print(shout_team_list)
+
+#map() example with numbers
+nums = [2, 4, 6, 8, 10]
+
+result = map(lambda a: a ** 2, nums)
+
+result_list = list(result)
+
+print(result_list)
+
+#filter() and lambda
+passwords = ['impossible', 'isawtom', '4htd3']
+
+result = filter(lambda password: len(password) > 6, passwords)
+
+result_list = list(result)
+
+print(result_list)
