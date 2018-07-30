@@ -31,3 +31,10 @@ result = filter(lambda password: len(password) > 6, passwords)
 result_list = list(result)
 
 print(result_list)
+
+#reduce() and lambda
+team = ['Alex', 'Clay', 'Connor', 'Roscoe', 'Kris']
+
+result = reduce(lambda item1, item2: item1 + item2, team)
+
+print(result)
