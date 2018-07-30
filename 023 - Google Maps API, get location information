@@ -1,0 +1,13 @@
+def get_location(address_string):
+   
+    import requests
+    
+    url="https://maps.googleapis.com/maps/api/geocode/json?address=%s" % (address_string)
+    response = requests.get(url).json()
+    result = response['results'][0]
+    lat = result['geometry']['location']['lat']
+    lng = result['geometry']['location']['lng']
+    address = result['formatted_address']
+    return (lat,lng, address)
+
+get_location("Wrigley Field")
