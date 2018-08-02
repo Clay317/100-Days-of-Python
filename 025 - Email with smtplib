@@ -1,0 +1,16 @@
+import smtplib
+
+from email.mime.text import MIMEText
+
+fp = open("C:\\Users\\Connor\\Documents\\Theo\\hello.txt", 'r')
+
+msg = MIMEText(fp.read())
+fp.close()
+
+msg['Subject'] = 'The contents of %s' % msg
+msg['From'] = 'abc@gmail.com'
+msg['To'] = '123@gmail.com'
+
+s = smtplib.SMTP('localhost')
+s.sendmail(me, [you], msg.as_string())
+s.quit()
