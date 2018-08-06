@@ -1,0 +1,9 @@
+import pandas
+
+#get counts of 2014 first round picks still in NFL
+pd.crosstab(data["First_round"],data["Current_player"],margins=True)
+
+#convert to percentage
+def to_percent(ser):
+  return ser/float(ser[-1])
+  pd.crosstab(data["First_round"],data["Current_player"],margins=True).apply(to_percent, axis=1)
