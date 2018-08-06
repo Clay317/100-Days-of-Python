@@ -1,0 +1,22 @@
+import pandas
+
+def binning(col, cut_points, labels=None):
+  minval = col.min()
+  maxval = col.max()
+  
+  break_points = [minval] + cut_points + [maxval]
+
+  if not labels:
+    labels = range(len(cut_points)+1)
+    
+  colBin = pd.cut(col,bins=break_points,labels=labels,include_lowest=True)
+  return colBin
+
+#Bin scores:
+scores_bin = "C:\\Users\\Connor\\Documents\\Ball\\Orders.txt"
+
+cut_points = [90,140,190]
+labels = ["low","medium","high","very high"]
+data[Scores_bin] = binning(data["Score"], cut_points, labels)
+
+print pd.value_counts(data["Scores_bin"], sort=False)
