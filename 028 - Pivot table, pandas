@@ -1,0 +1,6 @@
+import pandas
+
+#Determine pivot table for batting averages
+battingavg = data.pivot_table(values=["BattingAvg"], index=["Stadium","DayNight","Temp"], aggfunc=np.mean)
+
+print battingavg
