@@ -1,0 +1,11 @@
+#Inverting a dictionary with zip
+m = {'a': 1, 'b': 2, 'c': 3, 'd': 4}
+m.items()
+
+zip((m.values(), m.keys())))
+mi = dict(zip(m.value(), m.keys()))
+mi
+
+#Inverting with comprehensions 
+m = {'a': 1, 'b': 2, 'c': 3, 'd': 4}
+{v: k for k, v in m.items()}
