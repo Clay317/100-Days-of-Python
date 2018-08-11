@@ -1,0 +1,7 @@
+dict = {"Anthony": 44, "Javier": 9, "Kris": 17, "Addison": 22}
+
+def print_dict(dictionary):
+  for k, v in dictionary.items():
+    print('\n{}: {}'.format(k, v))
+    
+print_dict(dict)
