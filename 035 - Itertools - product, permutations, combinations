@@ -1,0 +1,19 @@
+import itertools
+for p in itertools.product([1, 2, 3], [4, 5]):
+  print(','.join(str(x) for x in p))
+  
+for p in itertools.product([0, 1], repeat = 4):
+  print(''.join(str(x) for x in p))
+  
+for p in itertools.permutations([1, 2, 3, 4]):
+  print(''.join(str(c) for x in p))
+  
+for c in itertools.combinations([1, 2, 3, 4, 5], 3):
+  print(''.join(str(x) for x in c))
+  
+for c in itertools.combinations_with_replacement([1, 2, 3], 2):
+  print(''.join(str(x) for x in c))
+
+a = [1, 2, 3, 4]
+for p in itertools.chain(itertools.combinations(a, 2), itertools.combinations(a, 3)):
+    print(p) 
