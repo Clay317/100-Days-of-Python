@@ -1,0 +1,12 @@
+from selenium import webdriver
+import time
+
+browser = webdriver.Chrome(driver_path ="C:\\Users\\Connor\\Documents\\Ball\\chromedriver.exe")
+website_URL ="https://www.espn.com"
+browser.get(website_URL)
+
+refreshrate = int(5)
+
+while True:
+ time.sleep(refreshrate)
+ browser.refresh()
