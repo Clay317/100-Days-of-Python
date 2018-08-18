@@ -1,0 +1,14 @@
+from selenium import webdriver
+
+browser = webdriver.Chrome(driver_path ="C:\\Users\\Connor\\Documents\\Ball\\chromedriver.exe")
+website_URL ="https://rcam.target.com/"
+browser.get(website_URL)
+
+
+username = driver.find_element_by_id("USERNAME")
+password = driver.find_element_by_id("PASSWORD")
+
+username.send_keys("YourUsername")
+password.send_keys("YourPassword")
+
+driver.find_element_by_name("SIGN IN").click()
