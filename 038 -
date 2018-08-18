@@ -1,0 +1,8 @@
+
+username = driver.find_element_by_id("username")
+password = driver.find_element_by_id("password")
+
+username.send_keys("YourUsername")
+password.send_keys("Pa55worD")
+
+driver.find_element_by_name("submit").click()
