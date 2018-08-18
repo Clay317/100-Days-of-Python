@@ -1,0 +1,13 @@
+def converter(date):
+    
+    euro_date = datetime.strptime(date, '%d/%m/%Y')
+    return datetime.strftime(euro_date, '%m/%d/%Y')
+
+converter('11/3/2018')
+
+
+def years_ago(date):
+    date_obj = datetime.strptime(date, '%d %b, %Y')
+    return THIS_YEAR - date_obj.year
+
+years_ago('7 Jul, 1986')
