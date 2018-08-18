@@ -4,7 +4,6 @@ browser = webdriver.Chrome(driver_path ="C:\\Users\\Connor\\Documents\\Ball\\chr
 website_URL ="https://rcam.target.com/"
 browser.get(website_URL)
 
-
 username = driver.find_element_by_id("USERNAME")
 password = driver.find_element_by_id("PASSWORD")
 
