@@ -1,0 +1,18 @@
+import requests
+import json
+
+api_url = "https://openexchangerates.org/api/latest.json?app_id="
+app_id = "<Enter basic account app id here>"
+
+def get_json():
+    return requests.get(api_url + app_id).json()
+
+def exchange_rates(data):
+    rates = data['rates']
+    print("USD $1 buys:")
+    for k, v in rates.items():
+        print("{}: {}".format(k, v))
+
+if __name__ == "__main__":
+    data = get_json()
+    exchange_rates(data)
