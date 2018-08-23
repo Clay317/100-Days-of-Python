@@ -1,0 +1,8 @@
+import requests
+
+url = 'http://www.zillow.com/webservice/GetRegionChildren.htm?zws-id=<ZWSID>&state=fl&city=tampa&childtype=neighborhood'
+re = requests.get(url)
+
+totext = t.text
+
+print(totext)
