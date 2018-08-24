@@ -1,0 +1,10 @@
+import requests
+
+url = 'https://en.wikipedia.org/w/api.php?action=query&prop=extracts&format=json&exintro=&titles=baseball'
+
+r = requests.get(url)
+
+json_data = r.json()
+
+baseball_extract = json_data['query']['pages']
+print(baseball_extract)
