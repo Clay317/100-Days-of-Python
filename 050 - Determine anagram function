@@ -1,0 +1,8 @@
+from collections import Counter
+
+def anagram(word1, word2):
+    w1 = Counter(word1.replace(' ', '').lower())
+    w2 = Counter(word2.replace(' ', '').lower())
+    return w1 == w2
+
+anagram('restful', 'fluster')
