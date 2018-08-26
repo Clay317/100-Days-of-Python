@@ -1,0 +1,22 @@
+from collections import Counter
+from bs4 import BeautifulSoup
+import requests
+
+best_books = 'http://projects.bobbelderbos.com/pcc/tribe-mentors-books.html'
+
+def load_page():
+    with requests.Session() as session:
+        return session.get(best_books).content.decode('utf-8')
+
+def get_top_books(content=None):
+    if content is None:
+        content = load_page()
+    c = Counter()
+
+    soup = BeautifulSoup(content, 'html.parser')
+    books = [link.text for link in soup.find_all('a') if amazon in link['href']]
+    count = Counter(books)
+    return [count]
+
+load_page()
+get_top_books()
