@@ -1,0 +1,54 @@
+from flask import Flask, render_template, url_for
+app = Flask(__name__)
+
+players = {"Ken Griffey Jr.": "Mariners",
+           "Barry Bonds": "Giants",
+           "Frank Thomas": "White Sox",
+           "Roberto Alomar": "Blue Jays",
+           "Greg Maddux": "Braves"}
+
+@app.route("/")
+def index():   
+    return render_template("beer.html",fave_beer=fave_beer)
+
+if __name__ == "__main__":
+    app.run(debug=True)
+	
+	
+#place html into templates folder, a folder away from .py
+#/bestplayers.py
+#/templates
+#    /formatbestplayers.html
+
+<!doctype html>
+
+<head>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<title>Best Basebal Players of the 1990s</title>
+	
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+</head>
+
+<body style="margin-left:50px">
+
+<h1>Best Players of the 1990s</h1>
+
+<div>
+	<table class="table-responsive table-striped table-bordered">
+		<tr>
+            <th>Name</th>
+            <th>Team</th>
+        </tr>
+		{% for name, team in players.items() %}
+			<tr>
+				<td>{{name}}</td>
+				<td>{{team}}</td>
+			</tr>
+		{% endfor %}
+	</table>
+</div>
+
+</body>
