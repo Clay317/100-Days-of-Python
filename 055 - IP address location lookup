@@ -1,0 +1,11 @@
+import json
+import requests
+
+ip_url = 'http://ipinfo.io/{ip}/json'
+
+def get_ip_country(ip_address):
+    res = requests.get(ip_url.format(ip=ip_address))
+    map = json.loads(res.content.decode('utf-8'))
+    return (ip_map.get('city'), ip_map.get('region'))
+
+print(get_ip_country("<IP address>"))
