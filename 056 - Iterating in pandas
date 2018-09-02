@@ -1,0 +1,12 @@
+import pandas as pd
+
+#return object of type TextFileReader that can be iterated over
+textfile = pd.read_table('<path to file>', sep=',', chunksize=4)
+
+for chunk in textfile:
+  print(chunk)
+  
+#setting iterator=True will also return the object TextFileReader 
+textfile = pd.read_table('<path to file>', sep=',', iterator=True)
+
+textfile.get_chunk(5)
