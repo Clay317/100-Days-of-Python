@@ -1,0 +1,10 @@
+#Load JSON data 
+spark.read.json("path to .json file")\ 
+.createOrReplaceTempView("<name of temp view") 
+
+sql = ('SELECT statement')
+
+#convert 
+df => SQLspark.sql(""sql"")\  
+.where("<where condition one").where("<where condition two>")\  .
+count() 
