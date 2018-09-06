@@ -1,0 +1,9 @@
+import pyodbc
+import pandas as pd
+con = pyodbc.connect(DSN='<enter server name>', UID='<enter userid>',pwd='<enter password>']))
+
+sql = """Query;"""
+
+data = pd.read_sql_query(sql, con)
+#print(data)
+data.to_csv(r"<path to output file>", index=False)
