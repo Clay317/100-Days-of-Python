@@ -6,5 +6,5 @@ sql = ('SELECT statement')
 
 #convert 
 df => SQLspark.sql(""sql"")\  
-.where("<where condition one").where("<where condition two>")\  .
-count() 
+.where("<where condition one>").where("<where condition two>")\  
+.count() 
