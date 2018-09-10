@@ -1,0 +1,18 @@
+import pandas
+
+#read html from a website
+url = 'http://www.fdic.gov/bank/individual/failed/banklist.html'
+  dfs = pd.read_html(url)
+
+#read html from a file
+with open(file_path, 'r') as f:
+  dfs = pd.read_html(f.read())
+
+#match table that contains specific text
+match = 'Metcalf Bank'
+df_list = pd.read_html(url, match=match)
+
+#change data type on import to preserve leading zeroes 
+url_mcc = 'https://en.wikipedia.org/wiki/Mobile_country_code'
+dfs = pd.read_html(url_mcc, match='Telekom Albania', header=0, converters={'MNC':
+str})
