@@ -1,0 +1,12 @@
+#pickle is unique to python and turns characters into bite values of 0 and 1
+
+#writes object to pickle
+df.to_pickle('foo.pkl')
+
+#returns object
+pd.read_pickle('foo.pkl')
+
+#writing and reading compressed pickle files
+df.to_pickle("data.pkl.compress", compression="gzip")
+
+rt = pd.read_pickle("data.pkl.compress", compression="gzip")
