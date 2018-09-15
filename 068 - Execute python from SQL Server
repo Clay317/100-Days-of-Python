@@ -1,0 +1,13 @@
+--enable external scripts 
+sp_configure 'external scripts enabled', 1;
+
+EXEC sp_execute_external_script  @language =N'Python',
+@script=N'
+MyOutput = MyInput;
+',
+@input_data_1_name = N'MyInput',
+--the SQL query that will be used by the python script
+@input_data_1 =N'SELECT 1 AS foo,2 AS bar',
+--name of variable in python script that contains value to be passed back to SQL, must be in dataframe 
+@output_data_1_name =N'MyOutput'
+WITH RESULT SETS ((ColNameOne int, MyColNameTwo int));
