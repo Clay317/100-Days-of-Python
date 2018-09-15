@@ -1,0 +1,33 @@
+import nltk
+import matplotlib.pyplot as plt
+
+text="""In 1998, Sosa and Mark McGwire achieved national fame for their home run-hitting prowess in pursuit of Roger Maris' home run record. Sosa is best known for his time with the Cubs where he became a 7-time All-Star while holding numerous team records. He finished his career with stints with the Baltimore Orioles and the Texas Rangers.[2] With the Rangers, Sosa hit his 600th career home run to become the fifth player in MLB history to reach the milestone.
+Sosa is second all-time in home runs among foreign-born MLB players and is one of only three National League players since 1900 to reach 160 RBIs in a season (2001). Sosa is also the only player to have hit 60 or more home runs in a single season three times."""
+
+#sentence tokenization
+from nltk.tokenize import sent_tokenize
+tokenized_text=sent_tokenize(text)
+
+#word tokenization
+from nltk.tokenize import word_tokenize
+tokenized_word=word_tokenize(text)
+
+#frequency distribution
+from nltk.probability import FreqDist
+fdist = FreqDist(tokenized_word)
+print(fdist)
+
+fdist.most_common(2)
+
+#plotting frequency distribution 
+fdist.plot(30,cumulative=False)
+plt.show()
+
+#removing stop words
+from nltk.corpus import stopwords
+stop_words=set(stopwords.words("english"))
+
+filtered_sent=[]
+for w in tokenized_sent:
+    if w not in stop_words:
+        filtered_sent.append(w)
