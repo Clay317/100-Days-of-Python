@@ -1,0 +1,45 @@
+#arithmetic error
+#use else if code needs to be executed, if there is an exception
+try:  
+    a = 10/0
+    print (a)
+except ArithmeticError:  
+        print('Arithmetic exception raised.')
+else:  
+    print('Success.')
+
+#assertion error
+try:
+    a=10
+    b=20
+    assert a==b, "Value mismatch"
+except AssertionError as e:
+    print(e)
+
+#type error
+try:
+    a=int(5)
+    b=str
+    c=a+b
+except TypeError:
+    print('Caught TypeError Exception')
+else:
+    print('No exception')
+
+#value error
+try:
+    print(int('a'))
+except ValueError:
+    print('Caught ValueError Exception')
+else:
+    print('No exception')
+
+#add finally if you want to execute something regardless of if there's an exception 
+try:
+    result = x / y
+except ZeroDivisionError:
+    print('division by zero')
+else:
+    print(result)
+finally:
+    print('executing finally clause')
