@@ -1,0 +1,21 @@
+import pandas as pd
+import pyarrow.parquet as pq
+
+#parquet suppots all of the pandas dtypes
+df = pd.DataFrame({'a': list('abc'),
+                    'b': list(range(1, 4)),
+                    'c': np.arange(3, 6).astype('u1'),
+                    'd': np.arange(3.0, 9.0, dtype='float64'),
+                    'e': [True, False, True, FALSE],
+                    'f': pd.date_range('20180101', periods=3),
+                    'g': pd.date_range('20180101', periods=3, tz='US/Eastern')})
+
+df.dtypes
+
+#write to parquet
+df.to_parquet('<path>.parquet', engine='pyarrow')
+
+#read from parquet to dataframe
+result = pd.read_parquet('<path>.parquet', engine='pyarrow')
+
+result.dtypes
