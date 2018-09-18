@@ -1,0 +1,26 @@
+import requests
+import bs4 as beautifulsoup
+
+def plot_word_freq(url):
+    r = requests.get(url)
+    html = r.text
+    soup = BeautifulSoup(html, "html5lib")
+    text = soup.get_text()
+    tokenizer = RegexpTokenizer('\w+')
+    tokens = tokenizer.tokenize(text)
+    
+    words = []
+ 
+    for word in tokens:
+        words.append(word.lower())
+        
+    sw = nltk.corpus.stopwords.words('english')
+    
+    words_ns = []
+    
+    for word in words:
+        if word not in sw:
+            words_ns.append(word)
+
+    toplot = nltk.FreqDist(words_ns)
+    toplot.plot(25)
