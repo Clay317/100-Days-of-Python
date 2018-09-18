@@ -1,0 +1,58 @@
+url = 'http://www.gutenberg.org/files/98/98-h/98-h.htm'
+
+import requests
+import re
+
+r = requests.get(url)
+html = r.text
+
+from bs4 import BeautifulSoup
+
+soup = BeautifulSoup(html, "html5lib")
+type(soup)
+
+#get the text out of the soup 
+text = soup.get_text()
+
+#find all words in A Tale of Two Cities
+tokens = re.findall('\w+', text)
+tokens[:8]
+
+import nltk
+from nltk.tokenize import RegexpTokenizer
+
+tokenizer = RegexpTokenizer('\w+')
+
+#create tokens
+tokens = tokenizer.tokenize(text)
+tokens[:8]
+
+#initialize list
+words = []
+
+# Loop through list tokens and make lower case
+for word in tokens:
+    words.append(word.lower())
+import nltk
+
+#get stopwords
+sw = nltk.corpus.stopwords.words('english')
+sw[:5]
+
+#initialize new list for non-stop words
+words_ns = []
+
+#add words to new list when not in sw
+for word in words:
+    if word not in sw:
+        words_ns.append(word)
+
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+%matplotlib inline
+sns.set()
+
+#create plot
+toplot = nltk.FreqDist(words)
+toplot.plot(25)
