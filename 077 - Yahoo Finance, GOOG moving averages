@@ -1,0 +1,35 @@
+import pandas as pd
+import pandas_datareader as data   
+import datetime
+
+start = datetime.datetime(2016,1,1)
+end = datetime.date.today()
+ 
+google.head()
+
+#the first argument is the series we want, second is the source ("yahoo" for Yahoo! Finance), third is the start date, fourth is the end date
+google = data.DataReader("GOOG", "yahoo", start, end)
+
+google.head()
+
+#get daily close
+daily_close = google[['Adj Close']]
+
+#determine daily returns
+daily_pct_c = daily_close.pct_change()
+daily_pct_c.fillna(0, inplace=True)
+
+#get percent change
+daily_pct_c = daily_close / daily_close.shift(1) - 1
+print(daily_pct_c)
+
+#get short moving window rolling mean
+google['30'] = daily_close.rolling(window=40).mean()
+
+#get long moving window rolling mean
+google['180'] = daily_close.rolling(window=180).mean()
+
+#plot the adjusted closing price, the short and long windows of rolling means
+google[['Adj Close', '30', '180']].plot()
+
+plt.show()
