@@ -23,6 +23,8 @@ daily_pct_c.fillna(0, inplace=True)
 daily_pct_c = daily_close / daily_close.shift(1) - 1
 print(daily_pct_c)
 
+import matplotlib.pyplot as plt
+
 #get short moving window rolling mean
 google['30'] = daily_close.rolling(window=40).mean()
 
