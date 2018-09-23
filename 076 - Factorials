@@ -1,0 +1,12 @@
+while True:
+    userNumber = int(input("Enter a number: "))
+    if type(userNumber) == type(12):
+        if userNumber != 1 and userNumber != 0:
+            userFactorial = 1
+            for f in range(userNumber, userNumber - userNumber, -1):
+                userFactorial *= int(f)
+            print(userNumber, "factorial =", userFactorial)
+        else:
+            print(userNumber, "factorial = 1")
+    else:
+        print("That's not a number..")
