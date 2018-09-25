@@ -1,0 +1,27 @@
+import pandas as pd
+import pandas_datareader as data   
+import datetime
+ 
+start = datetime.datetime(2016,1,1)
+end = datetime.date.today()
+ 
+short_window = 40
+long_window = 100
+
+#initialize dataframe with a signal column
+signals = pd.DataFrame(index=google.index)
+signals['signal'] = 0.0
+
+#create short moving average
+signals['short_mavg'] = google['Close'].rolling(window=short_window, min_periods=1, center=False).mean()
+
+#create long moving average
+signals['long_mavg'] = google['Close'].rolling(window=long_window, min_periods=1, center=False).mean()
+
+#create signals
+signals['signal'][short_window:] = np.where(signals['short_mavg'][short_window:] > signals['long_mavg'][short_window:], 1.0, 0.0)   
+
+# Generate trading orders
+signals['positions'] = signals['signal'].diff()
+
+print(signals)
