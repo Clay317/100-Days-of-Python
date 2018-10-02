@@ -1,0 +1,14 @@
+#__init__() function is called automatically every time the class is being used to create a new object
+#self parameter is a reference to the class itself, and is used to access variables that belongs to the class
+#the keyword 'class' actually creates a class
+
+class Person:
+  def __init__(self, name, age):
+    self.name = name
+    self.age = age
+
+  def hellofunc(self):
+    print("Hello my name is " + self.name)
+
+p1 = Person("Clay", 24)
+p1.hellofunc()
