@@ -1,0 +1,17 @@
+def choose_class(name):
+    if name == 'Cubs':
+        class Cubs(object):
+             pass
+        return Cubs # return the class, not an instanc
+    else:
+        class Sox(object):
+             pass
+        return Sox
+
+#assign and print class
+MyClass = choose_class('Cubs')
+print(MyClass)
+
+#try non-Cubs
+TheirClass = choose_class('Cards')
+print(TheirClass)
