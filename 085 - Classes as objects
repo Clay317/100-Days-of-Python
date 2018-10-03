@@ -1,0 +1,28 @@
+#create a class
+class ObjectCreator(object):
+     pass
+
+#print class
+print(ObjectCreator)
+
+#pass the call as a variable
+def echo(o):
+    print(o)
+    
+echo(ObjectCreator)
+    
+print(hasattr(ObjectCreator, 'new_attribute'))
+
+#add attribute to a class
+ObjectCreator.new_attribute = 'cubs' 
+
+print(hasattr(ObjectCreator, 'new_attribute'))
+
+print(ObjectCreator.new_attribute)
+
+#assign a class to a variable
+ObjectCreatorMirror = ObjectCreator 
+
+print(ObjectCreatorMirror.new_attribute)
+
+print(ObjectCreatorMirror())
