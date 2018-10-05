@@ -1,0 +1,8 @@
+import csv 
+
+positions = '''"SS", "C", "1st, DH", "3rd", "LF, CF, RF"'''.splitlines()
+
+for pos in  csv.reader(positions, quotechar='"', delimiter=',',
+                     quoting=csv.QUOTE_ALL, skipinitialspace=True):
+    
+    print(pos)
