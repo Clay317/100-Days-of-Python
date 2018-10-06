@@ -1,0 +1,15 @@
+import re
+
+#create pattern for phone number
+prog = re.compile('\d{3}-\d{3}-\d{4}')
+
+#see if the pattern matches result1
+result = prog.match('727-888-8888')
+print(bool(result))
+
+#see if the pattern matches result2
+result2 = prog.match('7272-888-8888')
+print(bool(result2))
+
+#search and pull out only digits
+re.findall(r'\d+', 'My phone number is 727-888-8888')
