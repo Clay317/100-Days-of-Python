@@ -1,0 +1,18 @@
+from PIL import Image, ImageFilter
+
+try:
+    #load image into original
+    original = Image.open("C:\\Users\\Connor\\Documents\\Ball\\shoes.JPG")
+
+    #blur the image
+    blurred = original.filter(ImageFilter.BLUR)
+
+    #show both images
+    original.show()
+    blurred.show()
+
+    #save the new image
+    blurred.save("C:\\Users\\Connor\\Documents\\Ball\\blurryshoes.JPG")
+
+except:
+    print("Unable to load image")
