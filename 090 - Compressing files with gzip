@@ -1,0 +1,15 @@
+import gzip
+import shutil
+
+#open and compress file
+with open('C:\\Users\\Connor\\Documents\\Ball\\James.txt', 'rb') as f_in, gzip.open('Jame.txt.gz', 'wb') as f_out:
+    shutil.copyfileobj(f_in, f_out)
+    
+print(f_in)  
+print(f_out)
+
+#reading a compressed file
+with gzip.open('Jame.txt.gz', 'rb') as f:
+    file_content = f.read()
+
+print(file_content)
