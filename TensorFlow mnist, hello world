@@ -1,0 +1,26 @@
+import tensorflow as tf
+#load dataset
+mnist = tf.keras.datasets.mnist
+
+#mnist contains 70,000 hand written characters
+(x_train, y_train),(x_test, y_test) = mnist.load_data()
+#pixels are between 0-255, divide by 255 to normalize
+x_train, x_test = x_train / 255.0, x_test / 255.0
+
+#sequential is a linear stack of layers
+#dense = neural network layer
+#dropout is a regularization technique
+model = tf.keras.models.Sequential([
+  tf.keras.layers.Flatten(),
+  tf.keras.layers.Dense(512, activation=tf.nn.relu),
+  tf.keras.layers.Dropout(0.2),
+  tf.keras.layers.Dense(10, activation=tf.nn.softmax)])
+  
+#the optimizer specifies the training procedure        
+#loss function to minimize during optimization
+#metrics is used to monitor accuracy
+model.compile(optimizer='adam', loss='sparse_categorical_crossentropy', metrics=['accuracy'])
+
+#epochs are separate training intervals
+model.fit(x_train, y_train, epochs=5)
+model.evaluate(x_test, y_test)
