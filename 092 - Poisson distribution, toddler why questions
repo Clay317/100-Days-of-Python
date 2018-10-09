@@ -1,0 +1,14 @@
+#events are independent
+#an event can occur x number of times in an interval 
+import numpy as np
+
+#on average there are 12.5 or 25/2 why questions per day
+whyquestions = np.random.poisson(25/2, size=10000)
+
+#compute the number of samples that are 20 or greater
+morethan = np.sum(whyquestions >= 20)
+
+#compute the probability of 20 or greater why questions
+p_morethan = morethan / 10000
+
+print('Probability of 20 or more why questions in one day:', p_morethan)
