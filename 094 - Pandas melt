@@ -1,0 +1,19 @@
+import pandas as pd
+
+#create dataframe
+df = pd.DataFrame({'A': {0: 'a', 1: 'b', 2: 'c'},
+                   'B': {0: 1, 1: 3, 2: 5},
+                   'C': {0: 2, 1: 4, 2: 6}})
+ 
+#match A with B values
+pd.melt(df, id_vars=['A'], value_vars=['B'])
+
+#match A with B and C values
+pd.melt(df, id_vars=['A'], value_vars=['B', 'C'])
+
+#match A with B and C values, 
+pd.melt(df, id_vars=['A'], value_vars=['B'], var_name='myVarname', value_name='myValname')
+
+#view in matrix format
+df.columns = [list('ABC')]
+
