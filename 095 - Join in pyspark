@@ -1,0 +1,44 @@
+R.txt
+k1,v1
+k1,v2
+k2,v3
+k2,v4
+k3,v7
+k3,v8
+k3,v9
+
+S.txt
+k1,v11
+k1,v22
+k1,v33
+k2,v55
+k4,v77
+k5,v88
+
+#load R text file
+R = sc.textFile("R.txt");
+R.collect()
+ 
+#load S text file
+S = sc.textFile("S.txt");
+S.collect()
+
+#apply split to all of the elements of r1
+r1 = R.map(lambda s: s.split(","))
+r1.collect()
+
+#flatMap applies the function to all elements and then flattens the result
+r2 = r1.flatMap(lambda s: [(s[0], s[1])])
+r2.collect()
+
+#apply split to all of the elements or s1
+s1 = S.map(lambda s: s.split(","))
+s1.collect()
+
+#flatMap applies the function to all elements and then flattens the result
+s2 = s1.flatMap(lambda s: [(s[0], s[1])])
+s2.collect()
+
+#join r2 and s2
+RjoinedS = r2.join(s2)
+RjoinedS.collect()
