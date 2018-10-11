@@ -1,0 +1,29 @@
+#use split to separate data by comma
+>>> data = ["abc,de", "abc,de,ze", "abc,de,ze,pe"]
+>>> data
+['abc,de', 'abc,de,ze', 'abc,de,ze,pe']
+
+>>> rdd = sc.parallelize(data)
+>>> rdd.collect()
+['abc,de', 'abc,de,ze', 'abc,de,ze,pe']
+>>> rdd.count()
+3
+
+>>> rdd2 = rdd.flatMap(lambda x : x.split(","))
+>>> rdd2.collect()
+['abc', 'de', 'abc', 'de', 'ze', 'abc', 'de', 'ze', 'pe']
+>>> rdd2.count()
+9
+
+#use split and create key value pairs based on the first two items
+>>> data2 = ["abc,de", "xyz,deeee,ze", "abc,de,ze,pe", "xyz,bababa"]
+>>> data2
+['abc,de', 'xyz,deeee,ze', 'abc,de,ze,pe', 'xyz,bababa']
+
+>>> rdd4 = sc.parallelize(data2)
+>>> rdd4.collect()
+['abc,de', 'xyz,deeee,ze', 'abc,de,ze,pe', 'xyz,bababa']
+
+>>> rdd5 = rdd4.map(lambda x : (x.split(",")[0], x.split(",")[1]))
+>>> rdd5.collect()
+[('abc', 'de'), ('xyz', 'deeee'), ('abc', 'de'), ('xyz', 'bababa')]
