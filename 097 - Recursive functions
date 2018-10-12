@@ -1,0 +1,20 @@
+#recursive if it calls itself and has condition to teminate
+#drawback as calls are stored in memory, so it could hold much more in memory than a traditional function
+
+#sum with recursion
+def sum(list):
+   if len(list) == 1:
+        return list[0]
+   else:
+        return list[0] + sum(list[1:])
+ 
+print(sum([12,19,12,9,31]))
+
+#factorial with recursion
+def factorial(n):
+    if n == 1:
+        return 1
+    else:
+        return n * factorial(n-1)
+ 
+ print factorial(3)
