@@ -1,0 +1,17 @@
+#encapsulation prevents from accessing accidentally
+#function cannot be called on the object directly, only from within the class
+#rename attributes and methods with double underscore to encapsulate
+
+class Motion:
+ 
+    def __init__(self):
+        self.__run()
+ 
+    def walk(self):
+        print('walking')
+ 
+    def __run(self):
+        print('running')
+ 
+redcar = Motion()
+redcar.walk()
