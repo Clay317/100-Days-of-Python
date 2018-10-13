@@ -1,0 +1,18 @@
+#call a method with 0, 1, or more arguments
+class Human:
+ 
+    def sayHello(self, name=None):
+ 
+        if name is not None:
+            print('Hello ' + name)
+        else:
+            print('Hello ')
+ 
+#create instance
+obj = Human()
+ 
+#call the method
+obj.sayHello()
+ 
+# Call the method with a parameter
+obj.sayHello('Connor')
