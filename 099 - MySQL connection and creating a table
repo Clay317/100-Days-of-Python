@@ -1,0 +1,18 @@
+import mysql.connector
+
+cnx = mysql.connector.connect(user='clay317', password='<password>',
+                              host='127.0.0.1',
+                              database='employees')
+cnx.close()
+
+mycursor = mydb.cursor()
+
+mycursor.execute("CREATE DATABASE newdatabase")
+
+mycursor.execute("CREATE TABLE friends (name VARCHAR(255), favcolor VARCHAR(255))")
+
+sql = "INSERT INTO friends (name, favcolor) VALUES (%s, %s)"
+val = ("Connor", "Blue")
+mycursor.execute(sql, val)
+
+mydb.commit()
